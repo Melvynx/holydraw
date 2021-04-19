@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/holydraw/static/css/main.daa20970.chunk.css",
-    "main.js": "/holydraw/static/js/main.56bc8070.chunk.js",
-    "main.js.map": "/holydraw/static/js/main.56bc8070.chunk.js.map",
+    "main.js": "/holydraw/static/js/main.32590c35.chunk.js",
+    "main.js.map": "/holydraw/static/js/main.32590c35.chunk.js.map",
     "runtime-main.js": "/holydraw/static/js/runtime-main.8568386a.js",
     "runtime-main.js.map": "/holydraw/static/js/runtime-main.8568386a.js.map",
     "static/js/2.5a2a1fb9.chunk.js": "/holydraw/static/js/2.5a2a1fb9.chunk.js",
@@ -26,6 +26,6 @@
     "static/js/runtime-main.8568386a.js",
     "static/js/2.5a2a1fb9.chunk.js",
     "static/css/main.daa20970.chunk.css",
-    "static/js/main.56bc8070.chunk.js"
+    "static/js/main.32590c35.chunk.js"
   ]
 }
