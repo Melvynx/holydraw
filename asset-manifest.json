@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/holydraw/static/css/main.8aa2a66f.chunk.css",
-    "main.js": "/holydraw/static/js/main.d9aa103e.chunk.js",
-    "main.js.map": "/holydraw/static/js/main.d9aa103e.chunk.js.map",
+    "main.js": "/holydraw/static/js/main.bb442eb3.chunk.js",
+    "main.js.map": "/holydraw/static/js/main.bb442eb3.chunk.js.map",
     "runtime-main.js": "/holydraw/static/js/runtime-main.e58fc4d2.js",
     "runtime-main.js.map": "/holydraw/static/js/runtime-main.e58fc4d2.js.map",
-    "static/js/2.8bcd7cfb.chunk.js": "/holydraw/static/js/2.8bcd7cfb.chunk.js",
-    "static/js/2.8bcd7cfb.chunk.js.map": "/holydraw/static/js/2.8bcd7cfb.chunk.js.map",
+    "static/js/2.5fcf3a29.chunk.js": "/holydraw/static/js/2.5fcf3a29.chunk.js",
+    "static/js/2.5fcf3a29.chunk.js.map": "/holydraw/static/js/2.5fcf3a29.chunk.js.map",
     "index.html": "/holydraw/index.html",
     "static/css/main.8aa2a66f.chunk.css.map": "/holydraw/static/css/main.8aa2a66f.chunk.css.map",
-    "static/js/2.8bcd7cfb.chunk.js.LICENSE.txt": "/holydraw/static/js/2.8bcd7cfb.chunk.js.LICENSE.txt",
+    "static/js/2.5fcf3a29.chunk.js.LICENSE.txt": "/holydraw/static/js/2.5fcf3a29.chunk.js.LICENSE.txt",
     "static/media/gym-guy.71a7fbf1.svg": "/holydraw/static/media/gym-guy.71a7fbf1.svg",
     "static/media/holydraw-logo.78893378.svg": "/holydraw/static/media/holydraw-logo.78893378.svg",
     "static/media/pp-1.acb77223.png": "/holydraw/static/media/pp-1.acb77223.png",
@@ -24,8 +24,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.e58fc4d2.js",
-    "static/js/2.8bcd7cfb.chunk.js",
+    "static/js/2.5fcf3a29.chunk.js",
     "static/css/main.8aa2a66f.chunk.css",
-    "static/js/main.d9aa103e.chunk.js"
+    "static/js/main.bb442eb3.chunk.js"
   ]
 }
