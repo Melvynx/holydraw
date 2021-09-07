@@ -2,6 +2,7 @@ import { alpha, InputBase, InputBaseProps, Theme } from '@material-ui/core';
 import { Box } from '@material-ui/system';
 import clsx from 'clsx';
 import React from 'react';
+import MediaqueryHeight from 'styles/breakpoint';
 
 type Variant = 'medium' | 'large';
 
@@ -23,7 +24,7 @@ export default function BigInput({
   const inputSx =
     variant === 'medium'
       ? {
-          fontSize: { xs: 24, sm: 28 },
+          fontSize: { xs: 26, sm: 28 },
           height: { xs: 32, sm: 36 },
         }
       : {
@@ -47,6 +48,9 @@ export default function BigInput({
         alignItems: 'center',
         transition: 'box-shadow ease-in .2s',
         boxShadow: 2,
+        [MediaqueryHeight.SM]: {
+          padding: '12px 20px',
+        },
         '&:focus-within': {
           boxShadow: theme =>
             `0 0 2px 0.2rem ${alpha(theme.palette.primary.main, 0.4)}`,

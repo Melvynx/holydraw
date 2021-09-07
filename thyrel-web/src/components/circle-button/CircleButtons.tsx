@@ -53,7 +53,7 @@ export default function CircleButtons({
             top: '50%',
             left: '50%',
             opacity: open ? '1' : '0',
-            transition: 'all .2s ease-in-out',
+            transition: 'all .05s ease-in-out',
             backgroundColor: theme =>
               circleBg === 'fill' ? theme.palette.background.paper : undefined,
             border: theme =>

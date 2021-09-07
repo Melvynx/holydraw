@@ -18,10 +18,12 @@ export default function StartForm() {
   const { session, currentElement, onSave } = useSessionContext();
   const [sentence, setSentence] = React.useState(currentElement?.text || '');
   const [loading, setLoading] = React.useState(false);
-  const isEditing = Boolean(!currentElement?.finishAt);
   const { room } = useRoomContext();
+
   const isOneWord = room?.mode === RoomMode.OneWord;
   const defaultSentence = useRandomSentence(isOneWord);
+
+  const isEditing = Boolean(!currentElement?.finishAt);
   const saveSentence = sentence || defaultSentence;
 
   function handleChange(event: any) {
@@ -71,7 +73,7 @@ export default function StartForm() {
             placeholder={
               session?.stepType === SessionStepType.Start
                 ? defaultSentence
-                : 'Your description here'
+                : 'Your description!'
             }
             value={sentence}
             onChange={handleChange}

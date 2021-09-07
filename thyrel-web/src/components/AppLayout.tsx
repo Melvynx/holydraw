@@ -1,5 +1,6 @@
 import { Box, Container } from '@material-ui/core';
 import React from 'react';
+import MediaqueryHeight from 'styles/breakpoint';
 
 type AppLayoutProps = {
   children?: React.ReactElement | React.ReactElement[];
@@ -15,12 +16,17 @@ export default function AppLayout({ children }: AppLayoutProps) {
       }}
       maxWidth="lg">
       <Box
-        display="block"
-        margin="auto"
-        height="100%"
-        pb={{ xs: 0, sm: 2 }}
-        width="100%"
-        minWidth={320}>
+        sx={{
+          display: 'block',
+          margin: 'auto',
+          height: 1,
+          width: 1,
+          pb: { xs: 0, sm: 2 },
+          minWidth: 320,
+          [MediaqueryHeight.SM]: {
+            pb: 0,
+          },
+        }}>
         {children}
       </Box>
     </Container>

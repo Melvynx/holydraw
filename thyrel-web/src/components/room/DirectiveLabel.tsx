@@ -11,15 +11,15 @@ export default function DirectiveLabel({
 }: DirectiveLabelProps) {
   return (
     <Box
-      width="100%"
-      display="flex"
-      padding={1}
-      borderRadius="32px"
-      alignItems="center"
-      flexDirection="column"
       sx={{
         backgroundColor: theme => alpha(theme.palette.primary.main, 0.8),
         boxShadow: theme => theme.shadows[2],
+        flexDirection: 'column',
+        alignItems: 'center',
+        borderRadius: 32,
+        padding: 1,
+        display: 'flex',
+        width: 1,
       }}>
       <Typography variant="subtitle1" color="textSecondary">
         {directive}

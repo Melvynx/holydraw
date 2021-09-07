@@ -6,7 +6,7 @@ import React from 'react';
 import { colors } from 'utils/app-constant';
 import DirectiveLabel from '../../DirectiveLabel';
 import { useDisableBodyOverflow } from '../useDisableBodyOverflow';
-import CanvasActionButtons from './CanvasActionButtons';
+import DesktopCanvasActionButtons from './DesktopCanvasActionButtons';
 import DesktopColorPicker from './DesktopColorPicker';
 import SizePickerV2 from './SizePickerV2';
 
@@ -48,7 +48,7 @@ export default function DrawDesktopCanvas() {
           <Box>
             <DrawingCanvas disabled={isFinish} />
           </Box>
-          <CanvasActionButtons
+          <DesktopCanvasActionButtons
             onSave={canvasImage => {
               if (!canvasImage) return;
               onSave(canvasImage);

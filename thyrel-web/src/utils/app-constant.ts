@@ -1,6 +1,12 @@
+/*
+  Rules:
+  - never use `#000000` TAG for no-null values.
+    - use `#020202` instead
+*/
+
 export const colors = [
   '#7f8c8d',
-  '#000001',
+  '#020202',
   '#ecf0f1',
   '#bdc3c7',
   '#00a8ff',
@@ -18,7 +24,7 @@ export const colors = [
 
 export const colorsMobile = [
   '#7f8c8d',
-  '#000001',
+  '#020202',
   '#ecf0f1',
   '#bdc3c7',
   '#00a8ff',
@@ -32,7 +38,6 @@ export const colorsMobile = [
   '#FEAFA8',
   '#f3a683',
   '#76b5c5',
-  '#9645CD',
   '#C1CF2C',
   '#EE090D',
   '#99ff66',

@@ -50,14 +50,10 @@ export default function useCanvasEventListener({
 
     canvas.addEventListener('touchstart', preventDefault);
     canvas.addEventListener('touchmove', preventDefault);
-    canvas.addEventListener('touchend', preventDefault);
-    canvas.addEventListener('touchcancel', preventDefault);
 
     return () => {
       canvas.removeEventListener('touchstart', preventDefault);
       canvas.removeEventListener('touchmove', preventDefault);
-      canvas.removeEventListener('touchend', preventDefault);
-      canvas.removeEventListener('touchcancel', preventDefault);
     };
   }, [canvasRef]);
 
@@ -83,12 +79,33 @@ export default function useCanvasEventListener({
       onMouseDown(mouseEvent);
     }
 
+    function touchEnd(event: TouchEvent) {
+      event.preventDefault();
+      const touches = event.touches[0];
+
+      // if no touches, just stop the drawing with empty event
+      if (!touches) {
+        onMouseUp(new MouseEvent('mousedown', {}));
+        return;
+      }
+
+      const mouseEvent = new MouseEvent('mousedown', {
+        clientX: touches.clientX,
+        clientY: touches.clientY,
+      });
+      onMouseUp(mouseEvent);
+    }
+
     canvas.addEventListener('mousedown', onMouseDown);
     canvas.addEventListener('touchstart', touchStart);
+    canvas.addEventListener('touchend', touchEnd);
+    canvas.addEventListener('touchcancel', touchEnd);
     window.document.addEventListener('mouseup', onMouseUp);
     return () => {
       canvas.removeEventListener('mousedown', onMouseDown);
       canvas.removeEventListener('touchstart', touchStart);
+      canvas.removeEventListener('touchend', touchEnd);
+      canvas.removeEventListener('touchcancel', touchEnd);
       window.document.removeEventListener('mouseup', onMouseUp);
     };
   }, [canvasRef, disabled, onMouseDown, onMouseUp]);

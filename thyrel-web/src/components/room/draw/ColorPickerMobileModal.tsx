@@ -40,34 +40,36 @@ export default function ColorPickerMobileModal({
         </Box>
       </Box>
       <Box
-        display="flex"
-        flexDirection="row"
-        flexWrap="wrap"
-        justifyContent="center"
-        mt={6}
-        ml={12}
-        mr={12}>
+        sx={{
+          ml: 1,
+          mr: 1,
+          height: 1,
+          placeContent: 'center',
+          flexWrap: 'wrap',
+          flexDirection: 'row',
+          display: 'flex',
+        }}>
         {colorsMobile.map(color => {
           const isSelected = color === currentColor;
           return (
             <Box
-              alignContent="center"
               component="button"
               key={color}
               onClick={() => {
                 onColorChange?.(color);
                 onClose();
               }}
-              border={2}
-              m={0.5}
-              p={0}
-              bgcolor={color}
-              boxShadow={isSelected ? 4 : 0}
-              borderColor={isSelected ? '#ffffff' : color}
-              width={50}
-              height={50}
-              borderRadius="50%"
-              className="cursor-pointer"
+              sx={{
+                cursor: 'pointer',
+                borderRadius: '50%',
+                width: 50,
+                height: 50,
+                boxShadow: isSelected ? 4 : 0,
+                backgroundColor: color,
+                m: 0.5,
+                border: 2,
+                borderColor: isSelected ? '#ffffff' : color,
+              }}
             />
           );
         })}

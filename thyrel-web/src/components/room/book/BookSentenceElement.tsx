@@ -15,14 +15,15 @@ export default function BookSentenceElement({
     <Box display="flex" flexDirection="column">
       <Typography variant="subtitle1">{username}</Typography>
       <Box
-        display="flex"
-        flexDirection="row"
-        p={0.5}
-        width={320}
         sx={{
           backgroundColor: theme => theme.palette.default.main,
           borderRadius: 20,
           border: 'none',
+          display: 'flex',
+          flexDirection: 'row',
+          alignItems: 'center',
+          p: 0.5,
+          maxWidth: 320,
         }}>
         <Avatar
           src={avatarUrl}

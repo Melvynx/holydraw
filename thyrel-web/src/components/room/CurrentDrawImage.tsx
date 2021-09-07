@@ -9,14 +9,26 @@ type CurrentDrawImageProps = {
 export default function CurrentDrawImage({ sx, src }: CurrentDrawImageProps) {
   return (
     <Box
-      bgcolor="common.white"
-      borderColor="default.main"
-      borderRadius="32px"
-      boxShadow={1}
-      border={4}
-      sx={sx}
-      display="flex">
+      sx={{
+        border: theme => `4px solid ${theme.palette.default.main}`,
+        bgcolor: 'common.white',
+        borderRadius: 8,
+        boxShadow: 1,
+        display: 'flex',
+        overflow: 'hidden',
+        ...sx,
+      }}>
       <img src={src} alt="" />
     </Box>
   );
 }
+
+/*
+
+        border: theme => `4px solid ${theme.palette.default.main}`,
+        bgcolor: theme => theme.palette.common.white,
+        borderRadius: '32px',
+        boxSadow: 1,
+        display: 'flex',
+        ...sx,
+*/

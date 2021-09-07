@@ -1,8 +1,11 @@
-import { AlertColor, Box } from '@material-ui/core';
+import { AlertColor, Box, IconButton } from '@material-ui/core';
 import Alert from '@material-ui/core/Alert';
 import { useWebsocketContext } from 'hooks/WebsocketProvider';
 import React from 'react';
 import { WsStates } from 'types/websocket.types';
+import SignalCellularConnectedNoInternet0BarIcon from '@material-ui/icons/SignalCellularConnectedNoInternet0Bar';
+import SignalCellularConnectedNoInternet2BarIcon from '@material-ui/icons/SignalCellularConnectedNoInternet2Bar';
+import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 
 function getSeverity(state: WsStates): AlertColor {
   switch (state) {
@@ -17,21 +20,38 @@ function getSeverity(state: WsStates): AlertColor {
   }
 }
 
-export default function WebsocketStateDebug() {
-  const [show, setShow] = React.useState(true);
-  const { wsState } = useWebsocketContext();
+function getIcon(state: WsStates) {
+  switch (state) {
+    case WsStates.CLOSED:
+      return <SignalCellularConnectedNoInternet0BarIcon />;
+    case WsStates.CONNECTING:
+      return <SignalCellularConnectedNoInternet2BarIcon />;
+    case WsStates.CONNECTED:
+      return <CheckCircleIcon />;
+    case WsStates.IDLE:
+      return <SignalCellularConnectedNoInternet2BarIcon />;
+  }
+}
 
-  if (!show) return null;
+export default function WebsocketStateDebug() {
+  const [show, setShow] = React.useState(false);
+  const { wsState } = useWebsocketContext();
 
   return (
     <Box position="absolute" bottom={0} right={0}>
-      <Alert
-        onClose={() => setShow(false)}
-        variant="filled"
-        elevation={4}
-        severity={getSeverity(wsState)}>
-        WS: {wsState}
-      </Alert>
+      {show ? (
+        <Alert
+          onClose={() => setShow(false)}
+          variant="filled"
+          elevation={4}
+          severity={getSeverity(wsState)}>
+          WS: {wsState}
+        </Alert>
+      ) : (
+        <IconButton size="small" onClick={() => setShow(true)}>
+          {getIcon(wsState)}
+        </IconButton>
+      )}
     </Box>
   );
 }

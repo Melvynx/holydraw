@@ -3,6 +3,7 @@ import {
   PaletteOptions,
   responsiveFontSizes,
 } from '@material-ui/core';
+import MediaqueryHeight from 'styles/breakpoint';
 
 export const PRIMARY = '#880061';
 export const SECONDARY = '#DB39F8';
@@ -76,6 +77,7 @@ function createBaseTheme() {
         styleOverrides: {
           root: {
             borderRadius: 32,
+            background: '#1a1d24',
           },
         },
       },
@@ -90,15 +92,18 @@ function createBaseTheme() {
           sizeLarge: {
             height: 68,
             minWidth: 128,
-            fontSize: 24,
+            fontSize: 20,
             color: palette.common?.white,
-            padding: '18px 24px',
+            padding: '16px 24px',
             borderRadius: 34,
             fontFamily: 'Work Sans',
             position: 'relative',
             '@media (min-width: 600px)': {
               fontSize: 28,
               height: 72,
+            },
+            [MediaqueryHeight.SM]: {
+              height: 64,
             },
             '&:hover': {
               backgroundColor: palette.action?.hover,

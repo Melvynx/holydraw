@@ -15,6 +15,8 @@ const canvasWidth = {
 
 const ratio = 1.6;
 
+const noUpdateRange = 1;
+
 export function DrawingCanvasProvider({
   color = '#900050',
   lineSize = 4,
@@ -33,8 +35,9 @@ export function DrawingCanvasProvider({
     if (!newWidth || newWidth < 64) return;
 
     const newHeight = newWidth / ratio;
-    const border = newWidth < 400 ? 2 : 4;
-    const noUpdateRange = 1;
+    const isSmallDevice = newWidth < 400;
+
+    const border = isSmallDevice ? 2 : 4;
 
     const newWidthWitoutBorder = newWidth - border * 2;
     if (
@@ -45,7 +48,7 @@ export function DrawingCanvasProvider({
         width: newWidthWitoutBorder,
         height: newHeight - border * 2,
         border,
-        scale: 2,
+        scale: isSmallDevice ? 4 : 2,
       });
     }
   }, [currentSize.width]);
@@ -80,8 +83,10 @@ export function DrawingCanvasProvider({
   const onMouseUp = React.useCallback(
     (event: MouseEvent) => {
       setIsPainting(false);
-      const coordinate = getCoordinates(event, currentSize.scale);
-      addLastLine(coordinate);
+      if (event.clientX && event.clientY) {
+        const coordinate = getCoordinates(event, currentSize.scale);
+        addLastLine(coordinate);
+      }
     },
     [addLastLine, currentSize.scale],
   );

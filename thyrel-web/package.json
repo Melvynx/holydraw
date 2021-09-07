@@ -39,11 +39,11 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "yarn build",
     "format": "prettier --write .",
+    "gh:linter": "eslint ./src --max-warnings 0",
+    "predeploy": "yarn build",
     "deploy": "gh-pages -d ./build",
-    "deploy-skip-predeploy": "gh-pages -d ./build",
-    "gh:linter": "eslint ./src --max-warnings 0"
+    "deploy-skip-predeploy": "gh-pages -d ./build"
   },
   "eslintConfig": {
     "extends": [

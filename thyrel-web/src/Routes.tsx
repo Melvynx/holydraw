@@ -1,35 +1,53 @@
 import AppLayout from 'components/AppLayout';
+import Loading from 'components/Loading';
 import { PlayerContextProvider } from 'hooks/PlayerProvider';
 import { RoomContextProvider } from 'hooks/RoomProvider';
 import { SessionContextProvider } from 'hooks/SessionProvider';
 import { WebsocketProvider } from 'hooks/WebsocketProvider';
 import ComponentTest from 'pages/ComponentTest';
 import DevNav from 'pages/DevNav';
-import Home from 'pages/Home';
-import Book from 'pages/room/Book';
-import Draw from 'pages/room/Draw';
-import Lobby from 'pages/room/Lobby';
-import Start from 'pages/room/Start';
-import Write from 'pages/room/Write';
+import { lazy, Suspense } from 'react';
 import { BrowserRouter, Route, RouteProps, Switch } from 'react-router-dom';
+
+const HomeLazy = lazy(
+  () => import(/* webpackChunkName: "Home" */ 'pages/Home'),
+);
+const LobbyLazy = lazy(
+  () => import(/* webpackChunkName: "Lobby" */ 'pages/room/Lobby'),
+);
+const BookLazy = lazy(
+  () => import(/* webpackChunkName: "Book" */ 'pages/room/Book'),
+);
+const DrawLazy = lazy(
+  () => import(/* webpackChunkName: "Draw" */ 'pages/room/Draw'),
+);
+const StartLazy = lazy(
+  () => import(/* webpackChunkName: "Start" */ 'pages/room/Start'),
+);
+const WriteLazy = lazy(
+  () => import(/* webpackChunkName: "Write" */ 'pages/room/Write'),
+);
 
 export default function Routes() {
   return (
     <AppLayout>
       <BrowserRouter>
-        <Switch>
-          {/* Test routes */}
-          <OnlyForDevRoute path="/t" component={ComponentTest} />
-          <OnlyForDevRoute path="/t" component={DevNav} />
-          <OnlyForDevRoute path="/start" component={Start} />
-          <OnlyForDevRoute path="/draw" component={Draw} />
+        <Suspense fallback={<Loading />}>
+          <Switch>
+            {/* Test routes */}
+            <OnlyForDevRoute path="/t" component={ComponentTest} />
+            <OnlyForDevRoute path="/t" component={DevNav} />
+            <OnlyForDevRoute path="/start" component={StartLazy} />
+            <OnlyForDevRoute path="/draw" component={DrawLazy} />
+            <OnlyForDevRoute path="/write" component={WriteLazy} />
 
-          {/* Game routes */}
-          <Route path="/join/:identifier" component={Home} />
-          <Route path="/home" component={Home} />
-          <Route path="/room" component={RoomRoutes} />
-          <Route path="/" component={Home} />
-        </Switch>
+            {/* Game routes */}
+            <Route path="/join/:identifier" component={HomeLazy} />
+            <Route path="/home" component={HomeLazy} />
+            <Route path="/room" component={RoomRoutes} />
+            <Route path="/" component={HomeLazy} />
+          </Switch>
+        </Suspense>
       </BrowserRouter>
     </AppLayout>
   );
@@ -41,7 +59,7 @@ function RoomRoutes() {
       <PlayerContextProvider>
         <RoomContextProvider>
           <Switch>
-            <Route path="/room/lobby" component={Lobby} />
+            <Route path="/room/lobby" component={LobbyLazy} />
             <Route path="/room" component={SessionRoutes} />
           </Switch>
         </RoomContextProvider>
@@ -54,11 +72,11 @@ function SessionRoutes() {
   return (
     <SessionContextProvider>
       <Switch>
-        <Route path="/room/start" component={Start} />
-        <Route path="/room/draw" component={Draw} />
-        <Route path="/room/write" component={Write} />
-        <Route path="/room/book" component={Book} />
-        <Route path="/room/lobby" component={Lobby} />
+        <Route path="/room/start" component={StartLazy} />
+        <Route path="/room/draw" component={DrawLazy} />
+        <Route path="/room/write" component={WriteLazy} />
+        <Route path="/room/book" component={BookLazy} />
+        <Route path="/room/lobby" component={LobbyLazy} />
       </Switch>
     </SessionContextProvider>
   );

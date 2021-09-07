@@ -13,11 +13,11 @@ export default function HolyDrawLogo({ width = 24 }: { width?: number }) {
     textAlign: 'center',
     width: ((width * 8) / 3) * 2,
     height: 'auto',
-    [MediaqueryHeight.SM]: {
-      width: ((width * 8) / 3) * 2,
-    },
     [theme.breakpoints.up('sm')]: {
       width: width * 8,
+    },
+    [MediaqueryHeight.SM]: {
+      width: ((width * 8) / 3) * 2,
     },
   }));
 
