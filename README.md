@@ -1,6 +1,6 @@
 # HolyDraw 👨‍🎨 - 10a
 
-*Draw! Guess! Don't Fail!*
+_Draw! Guess! Don't Fail!_
 
 https://holydraw.vercel.app/
 
@@ -13,31 +13,39 @@ Réalisée dans le cadre des modules : `i226b - Implémenter orienté objets (av
 ## Technologies utilisées 💻
 
 **Backend**
- * Le backend est réalisé avec `C#` avec les framework : `Entity Framework` et `Newtonsoft`.
- * Ainsi que `MySQL` pour la base de données.
+
+- Le backend est réalisé avec `C#` avec les framework : `Entity Framework` et `Newtonsoft`.
+- Ainsi que `MySQL` pour la base de données.
 
 **Frontend**
- * Utilisation d'un site web qui utilise `React` comme Framework principal, avec `Material-UI` pour les styles.
+
+- Utilisation d'un site web qui utilise `React` comme Framework principal, avec `Material-UI` pour les styles.
 
 ## Install Guide
+
 #### Requested :
-* [Docker](https://github.com/GinierClasses/teamproject-thyrel-team/wiki/Docker-Tutorial)
-* Visual Studio, Rider JetBrains *or any IDE that support C#*
+
+- [Docker](https://github.com/GinierClasses/teamproject-thyrel-team/wiki/Docker-Tutorial)
+- Visual Studio, Rider JetBrains _or any IDE that support C#_
 
 #### Clone the project :
-* `git clone https://github.com/GinierClasses/teamproject-thyrel-team.git`
+
+- `git clone https://github.com/GinierClasses/teamproject-thyrel-team.git`
 
 #### Install :
 
 **Frontend**
-* run `npm install` : install packages
-* run `npm run start` : run the server
+
+- run `npm install` : install packages
+- run `npm run start` : run the server
 
 **Backend**
-* Lancer l'API du projet, Swagger s'ouvrira.
+
+- Lancer l'API du projet, Swagger s'ouvrira.
 
 **Docker**
-* run `docker-compose up` (dans le dossier du projet)
+
+- run `docker-compose up` (dans le dossier du projet)
 
 ---
 
@@ -45,7 +53,7 @@ Réalisée dans le cadre des modules : `i226b - Implémenter orienté objets (av
 
 ![Current Branch](https://img.shields.io/badge/branch-sprint--8-blue?style=for-the-badge)
 
-![Most used language](https://img.shields.io/github/languages/top/GinierClasses/teamproject-thyrel-team?style=for-the-badge) 
+![Most used language](https://img.shields.io/github/languages/top/GinierClasses/teamproject-thyrel-team?style=for-the-badge)
 ![Number of languages](https://img.shields.io/github/languages/count/GinierClasses/teamproject-thyrel-team?style=for-the-badge)
 
 ## Tests de la branche :
